@@ -1,12 +1,14 @@
 ## TODOS:
 
--   Improve dev experience by adding nodemon / eslint / tsc compile support.
+-   1. Improve dev experience by adding nodemon / tsc compile support. (Likely command - npm run dev)
 
--   Continue debugging errors after changes to Amazon website.
+-   2. Continue debugging errors after changes to Amazon website.
 
--   Add remove functionality option, which will allow (1) whitelist credit card numbers and then (2) remove all non-whitelisted credit card numbers.
+-   3. Add basic pre-run checking on all credit card information (no whitespace, length = 16, etc.) of and throw errors if any are found.
 
--   Investigate OS X issue with pathing to Chrome browser not working.
+-   4. Add remove functionality option, which will allow (1) whitelist credit card numbers and then (2) remove all non-whitelisted credit card numbers.
+
+-   Investigate OS X issue with pathing to Chrome browser not working. (Given this will could be used by non-developers, Docker may be too heavy a burden...)
 
 ## Implemented Changes:
 
