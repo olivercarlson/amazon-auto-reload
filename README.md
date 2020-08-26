@@ -1,20 +1,27 @@
 ## TODOS:
 
--   1. Improve dev experience by adding nodemon / tsc compile support. (Likely command - npm run dev)
+-   1. Investigate Unhandled promise rejection error after finishing up a card yesterday (failed at amazon.ts line #156)
 
 -   2. Continue debugging errors after changes to Amazon website.
 
--   3. Add basic pre-run checking on all credit card information (no whitespace, length = 16, etc.) of and throw errors if any are found.
+-   3. Add basic pre-run checking for typos on all credit card information (no whitespace, length = 16, etc.) and throw errors if any are found.
 
--   4. Add remove functionality option, which will allow (1) whitelist credit card numbers and then (2) remove all non-whitelisted credit card numbers.
+-   4. Add remove card functionality option, which will consist of (1) adding flag to whitelist credit card numbers and then (2) remove all non-whitelisted credit card numbers.
 
--   Investigate OS X issue with pathing to Chrome browser not working. (Given this will could be used by non-developers, Docker may be too heavy a burden...)
+-   5. (low priority) Investigate OS X issue with pathing to Chrome browser not working. Instead, will likely move to investigate docker build issues afterwards as thats a superior solution for removing compatability issues that could be OS dependent.
 
-## Implemented Changes:
+## History:
 
--   Changed Firefox to default browser.
+8/25/20:
 
+-   Added tsc-watch package and "npm run dev" command to the package.json to automatically rebuild TS code and run after completion.
+-   Changed the xpath command to find again find the correct DOM Node - now uses the "data-number" to find the last 4 digits and click. As a result, the program works again on Firefox x64 79.0.0 && OS X 10.15.6.
+
+8/24/20:
+
+-   Initial fork and set up of repository. Added tnortman's PR changes to update DOM tree navigation based off of current changes.
 -   Added updates from pull request not yet merged to original branch by @tnortman.
+-   Changed Firefox to default browser. (due to unresolved pathing error with chrome on OSX)
 
 ## Forked everettsouthwick/amazon-auto-reload
 

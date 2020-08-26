@@ -123,10 +123,10 @@ export class Amazon extends Site implements IAmazonConfig {
 			await reloadAmount.sendKeys(`${card.reloadAmount}`);
 		}
 
+		// either select already loaded card and click or attempt to add the card.
 		try {
-			// await driver.findElement(By.xpath(`//*[contains(text(), 'ending in ${card.lastFour}')]`)).click();
-			await driver.findElement(By.xpath(`//*[contains(text(), 'ending in ${card.lastFour}')]`)).click();
-			data-number="4837"
+			// <span data-number=#### class="a-color-secondary pmts-cc-number">ending in ####</span>
+			await driver.findElement(By.xpath(`//*[@data-number=${card.lastFour}]`)).click();
 		} catch {
 			// If the above failed, let's add a card
 			await this.addCard(card);
@@ -152,7 +152,7 @@ export class Amazon extends Site implements IAmazonConfig {
 			// If the initial Reload $ click failed, try seeing if the address needs confirming
 			try {
 				// Submit address if prompted.
-				// If it doesn't throw error failed to find the elemtent, our order should be successful.
+				// If it doesn't throw error failed to find the element, our order should be successful.
 				await driver.findElement(By.name('ppw-widgetEvent:SelectAddressEvent')).click();
 
 				return;
@@ -161,6 +161,7 @@ export class Amazon extends Site implements IAmazonConfig {
 			}
 
 			// If the reload fails, we must confirm the card number.
+			// #TODO: error hit here after successfully completing transactions for a card.
 			const confirmation: WebElement = await driver.findElement(By.xpath(`//input[@placeholder='ending in ${card.lastFour}']`));
 			await driver.wait(until.elementIsVisible(confirmation));
 			await confirmation.sendKeys(card.cardNumber);
