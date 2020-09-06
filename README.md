@@ -1,16 +1,20 @@
 ## TODOS:
 
--   1. Investigate Unhandled promise rejection error after finishing up a card yesterday (failed at amazon.ts line #156)
+-   1. Add basic pre-run checking for typos on all credit card information (no whitespace, length = 16, etc.) and throw errors if any are found.
 
--   2. Continue debugging errors after changes to Amazon website.
+-   2. After script runs, use chalk to display outputs of the reloads to the user.
 
--   3. Add basic pre-run checking for typos on all credit card information (no whitespace, length = 16, etc.) and throw errors if any are found.
+-   3. Add remove card functionality option, which will consist of (1) adding flag to whitelist credit card numbers and then (2) remove all non-whitelisted credit card numbers.
 
--   4. Add remove card functionality option, which will consist of (1) adding flag to whitelist credit card numbers and then (2) remove all non-whitelisted credit card numbers.
+-   4. if more occur: Continue debugging errors after changes to Amazon website.
 
 -   5. (low priority) Investigate OS X issue with pathing to Chrome browser not working. Instead, will likely move to investigate docker build issues afterwards as thats a superior solution for removing compatability issues that could be OS dependent.
 
 ## History:
+
+9/6/20:
+
+-   Appears the issue "Investigate Unhandled promise rejection error after finishing up a card yesterday (failed at amazon.ts line #156)" does not occur consistently. May have been the result of a typo not fixed before compiling tsc again.
 
 8/25/20:
 
